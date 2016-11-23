@@ -13,7 +13,7 @@ import com.moneydistribution.warehouse.h2base.impl.springConfig.DataBaseConfig;
 @Controller
 @Import({MvcConfig.class, SpringSecurityConfig.class, DataBaseConfig.class})
 @SpringBootApplication
-public class SeapApplication {
+public class MoneyDistrApplication {
 
 	@RequestMapping("/")
 	String home() {
@@ -21,6 +21,6 @@ public class SeapApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SeapApplication.class, args);
+		SpringApplication.run(MoneyDistrApplication.class, args);
 	}
 }

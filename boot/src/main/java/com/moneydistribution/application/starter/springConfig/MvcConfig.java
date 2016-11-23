@@ -1,7 +1,9 @@
 package com.moneydistribution.application.starter.springConfig;
 
 import org.h2.server.web.WebServlet;
+import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
+import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -13,7 +15,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = {"SAP.web"})
+@ComponentScan(basePackages = {"com.moneydistribution"})
 public class MvcConfig extends WebMvcConfigurerAdapter {
 
 	@Override
@@ -38,5 +40,12 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 		ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
 		registrationBean.addUrlMappings("/console/*");
 		return registrationBean;
+	}
+
+	@Bean
+	public EmbeddedServletContainerFactory servletContainer() {
+		TomcatEmbeddedServletContainerFactory factory =
+				new TomcatEmbeddedServletContainerFactory();
+		return factory;
 	}
 }
