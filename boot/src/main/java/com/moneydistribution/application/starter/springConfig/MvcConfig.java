@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.application.starter.springConfig;
+package com.moneydistribution.application.starter.springConfig;
 
 import org.h2.server.web.WebServlet;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;

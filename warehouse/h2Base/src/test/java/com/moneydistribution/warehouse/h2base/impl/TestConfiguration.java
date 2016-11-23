@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.warehouse.h2base.impl;
+package com.moneydistribution.warehouse.h2base.impl;
 
 import java.util.Properties;
 

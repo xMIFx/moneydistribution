@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.warehouse.whDomain;
+package com.moneydistribution.warehouse.whDomain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,22 +15,19 @@ public class UserDTOWarehouse {
 	protected Long id;
 	protected String login;
 	protected String password;
-	protected int userType;
 
 	public UserDTOWarehouse() {
 	}
 
-	public UserDTOWarehouse(Long id, String login, String password, int userType) {
+	public UserDTOWarehouse(Long id, String login, String password) {
 		this.id = id;
 		this.login = login;
 		this.password = password;
-		this.userType = userType;
 	}
 
-	public UserDTOWarehouse(String login, String password, int userType) {
+	public UserDTOWarehouse(String login, String password) {
 		this.login = login;
 		this.password = password;
-		this.userType = userType;
 		this.id = null;
 	}
 
@@ -52,11 +49,6 @@ public class UserDTOWarehouse {
 		return password;
 	}
 
-	@Column(name = "userType")
-	public int getUserType() {
-		return userType;
-	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -67,10 +59,6 @@ public class UserDTOWarehouse {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public void setUserType(int userType) {
-		this.userType = userType;
 	}
 
 	@Override
@@ -84,16 +72,7 @@ public class UserDTOWarehouse {
 
 		UserDTOWarehouse that = (UserDTOWarehouse) o;
 
-		if (userType != that.userType) {
-			return false;
-		}
-		if (id != null ? !id.equals(that.id) : that.id != null) {
-			return false;
-		}
-		if (!login.equals(that.login)) {
-			return false;
-		}
-		return password.equals(that.password);
+		return (id != null ? id.equals(that.id) : that.id == null) && login.equals(that.login) && password.equals(that.password);
 
 	}
 
@@ -102,7 +81,6 @@ public class UserDTOWarehouse {
 		int result = id != null ? id.hashCode() : 0;
 		result = 31 * result + login.hashCode();
 		result = 31 * result + password.hashCode();
-		result = 31 * result + userType;
 		return result;
 	}
 }

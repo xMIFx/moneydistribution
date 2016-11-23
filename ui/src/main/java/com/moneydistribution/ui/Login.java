@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.ui;
+package com.moneydistribution.ui;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

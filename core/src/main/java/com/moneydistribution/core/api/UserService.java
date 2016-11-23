@@ -1,8 +1,8 @@
-package com.xMIFx.SEAP.core.api;
+package com.moneydistribution.core.api;
 
 import java.util.List;
 
-import com.xMIFx.SEAP.domain.User;
+import com.moneydistribution.domain.User;
 
 public interface UserService {
 

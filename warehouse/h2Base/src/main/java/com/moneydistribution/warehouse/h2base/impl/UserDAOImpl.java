@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.warehouse.h2base.impl;
+package com.moneydistribution.warehouse.h2base.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.xMIFx.SEAP.warehouse.whDomain.UserDTOWarehouse;
-import com.xMIFx.SEAP.warehouse.whDomain.api.UserDAO;
+import com.moneydistribution.warehouse.whDomain.UserDTOWarehouse;
+import com.moneydistribution.warehouse.whDomain.api.UserDAO;
 
 @Repository
 public class UserDAOImpl implements UserDAO {

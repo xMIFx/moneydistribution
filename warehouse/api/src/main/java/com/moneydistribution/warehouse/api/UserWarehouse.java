@@ -1,8 +1,8 @@
-package com.xMIFx.SEAP.warehouse.api;
+package com.moneydistribution.warehouse.api;
 
 import java.util.List;
 
-import com.xMIFx.SEAP.domain.User;
+import com.moneydistribution.domain.User;
 
 public interface UserWarehouse {
 	User getById(Long id);

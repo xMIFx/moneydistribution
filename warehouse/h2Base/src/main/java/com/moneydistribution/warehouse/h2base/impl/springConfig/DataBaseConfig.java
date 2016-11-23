@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.warehouse.h2base.impl.springConfig;
+package com.moneydistribution.warehouse.h2base.impl.springConfig;
 
 import java.util.Properties;
 

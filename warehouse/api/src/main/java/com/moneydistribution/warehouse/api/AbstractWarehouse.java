@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.warehouse.api;
+package com.moneydistribution.warehouse.api;
 
 import java.io.Serializable;
 import java.util.List;

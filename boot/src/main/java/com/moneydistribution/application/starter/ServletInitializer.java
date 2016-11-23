@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.application.starter;
+package com.moneydistribution.application.starter;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;

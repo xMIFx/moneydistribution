@@ -1,8 +1,8 @@
-package com.xMIFx.SEAP.warehouse.whDomain.api;
+package com.moneydistribution.warehouse.whDomain.api;
 
 import java.util.List;
 
-import com.xMIFx.SEAP.warehouse.whDomain.UserDTOWarehouse;
+import com.moneydistribution.warehouse.whDomain.UserDTOWarehouse;
 
 public interface UserDAO {
 	UserDTOWarehouse getById(Long id);

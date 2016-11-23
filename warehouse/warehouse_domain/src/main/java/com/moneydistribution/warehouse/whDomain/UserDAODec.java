@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.warehouse.whDomain;
+package com.moneydistribution.warehouse.whDomain;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Component;
 
-import com.xMIFx.SEAP.warehouse.whDomain.api.UserDAO;
-import com.xMIFx.SEAP.domain.User;
-import com.xMIFx.SEAP.warehouse.api.UserWarehouse;
+import com.moneydistribution.domain.User;
+import com.moneydistribution.warehouse.api.UserWarehouse;
+import com.moneydistribution.warehouse.whDomain.api.UserDAO;
 
 @Component
 public class UserDAODec implements UserWarehouse {

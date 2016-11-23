@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.warehouse.h2base.impl;
+package com.moneydistribution.warehouse.h2base.impl;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -15,8 +15,8 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.xMIFx.SEAP.warehouse.whDomain.UserDTOWarehouse;
-import com.xMIFx.SEAP.warehouse.whDomain.api.UserDAO;
+import com.moneydistribution.warehouse.whDomain.UserDTOWarehouse;
+import com.moneydistribution.warehouse.whDomain.api.UserDAO;
 
 @Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -29,7 +29,7 @@ public class UserDAOImplTest {
 	@Test
 	public void testOneSave() throws Exception {
 		Long expected = 1L;
-		UserDTOWarehouse user = new UserDTOWarehouse("MIF", "1", 1);
+		UserDTOWarehouse user = new UserDTOWarehouse("MIF", "1");
 
 		Long result = userDAO.save(user);
 
@@ -39,14 +39,14 @@ public class UserDAOImplTest {
 	@Test
 	public void testSeveralSave() throws Exception {
 		Long expected = 1L;
-		UserDTOWarehouse user = new UserDTOWarehouse("MIF", "1", 1);
+		UserDTOWarehouse user = new UserDTOWarehouse("MIF", "1");
 
 		Long result = userDAO.save(user);
 
 		assertThat(result, is(expected));
 
 		expected = 2L;
-		UserDTOWarehouse user2 = new UserDTOWarehouse("MIF1", "11", 2);
+		UserDTOWarehouse user2 = new UserDTOWarehouse("MIF1", "11");
 
 		result = userDAO.save(user2);
 
@@ -55,9 +55,9 @@ public class UserDAOImplTest {
 
 	@Test
 	public void testGetById() throws Exception {
-		UserDTOWarehouse expected = new UserDTOWarehouse(1L, "MIF", "1", 1);
+		UserDTOWarehouse expected = new UserDTOWarehouse(1L, "MIF", "1");
 
-		UserDTOWarehouse user = new UserDTOWarehouse("MIF", "1", 1);
+		UserDTOWarehouse user = new UserDTOWarehouse("MIF", "1");
 		userDAO.save(user);
 
 		UserDTOWarehouse result = userDAO.getById(expected.getId());
@@ -67,11 +67,11 @@ public class UserDAOImplTest {
 	@Test
 	public void testGetAll() throws Exception {
 		List<UserDTOWarehouse> expected = new ArrayList<>();
-		expected.add(new UserDTOWarehouse(1L, "MIF", "1", 1));
-		expected.add(new UserDTOWarehouse(2L, "MIF1", "11", 2));
+		expected.add(new UserDTOWarehouse(1L, "MIF", "1"));
+		expected.add(new UserDTOWarehouse(2L, "MIF1", "11"));
 
-		userDAO.save(new UserDTOWarehouse("MIF", "1", 1));
-		userDAO.save(new UserDTOWarehouse("MIF1", "11", 2));
+		userDAO.save(new UserDTOWarehouse("MIF", "1"));
+		userDAO.save(new UserDTOWarehouse("MIF1", "11"));
 
 		List<UserDTOWarehouse> result = userDAO.getAll();
 		assertThat(result, is(expected));

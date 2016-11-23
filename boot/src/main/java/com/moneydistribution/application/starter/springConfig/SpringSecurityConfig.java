@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.application.starter.springConfig;
+package com.moneydistribution.application.starter.springConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

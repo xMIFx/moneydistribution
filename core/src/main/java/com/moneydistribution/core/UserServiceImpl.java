@@ -1,4 +1,4 @@
-package com.xMIFx.SEAP.core;
+package com.moneydistribution.core;
 
 import java.util.List;
 
@@ -6,12 +6,12 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
-import com.xMIFx.SEAP.core.api.UserService;
-import com.xMIFx.SEAP.domain.User;
-import com.xMIFx.SEAP.warehouse.api.UserWarehouse;
+import com.moneydistribution.core.api.UserService;
+import com.moneydistribution.domain.User;
+import com.moneydistribution.warehouse.api.UserWarehouse;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 	@Resource
 	UserWarehouse userWarehouse;
 
