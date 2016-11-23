@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>SEAP</artifactId>
+		<groupId>com.xMIFx.SEAP</groupId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>warehouse</artifactId>
+	<packaging>pom</packaging>
+	<name>${project.name} :: Warehouse</name>
+	<modules>
+		<module>api</module>
+		<module>warehouse_domain</module>
+		<module>h2base</module>
+	</modules>
+	<dependencies>
+		<dependency>
+			<groupId>com.xMIFx.SEAP</groupId>
+			<artifactId>domain</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+	</dependencies>
+
+</project>
