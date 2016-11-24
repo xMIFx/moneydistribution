@@ -24,7 +24,7 @@ import com.mchange.v2.c3p0.DriverManagerDataSource;
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:jdbc.properties")
-@ComponentScan(value = {"com.xMIFx.SEAP.warehouse.h2base.impl"})
+@ComponentScan(value = {"com.moneydistribution.warehouse.h2base.impl"})
 public class DataBaseConfig {
 	@Autowired
 	private Environment env;
@@ -45,7 +45,7 @@ public class DataBaseConfig {
 		LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
 		sessionFactory.setDataSource(dataSource());
 		sessionFactory.setHibernateProperties(hibernateProperties());
-		sessionFactory.setPackagesToScan("com.xMIFx.SEAP.warehouse");
+		sessionFactory.setPackagesToScan("com.moneydistribution.warehouse");
 		return sessionFactory;
 	}
 

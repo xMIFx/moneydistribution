@@ -13,7 +13,7 @@ import com.moneydistribution.warehouse.api.UserWarehouse;
 @Service
 public class UserServiceImpl implements UserService {
 	@Resource
-	UserWarehouse userWarehouse;
+	private UserWarehouse userWarehouse;
 
 	public List<User> getAll() {
 		return userWarehouse.getAll();

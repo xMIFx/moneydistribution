@@ -18,13 +18,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.moneydistribution.warehouse.whDomain.UserDTOWarehouse;
 import com.moneydistribution.warehouse.whDomain.api.UserDAO;
 
-@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @ContextConfiguration(classes = TestConfiguration.class)
 public class UserDAOImplTest {
 	@Resource
-	UserDAO userDAO;
+	private UserDAO userDAO;
 
 	@Test
 	public void testOneSave() throws Exception {
@@ -60,7 +59,7 @@ public class UserDAOImplTest {
 		UserDTOWarehouse user = new UserDTOWarehouse("MIF", "1");
 		userDAO.save(user);
 
-		UserDTOWarehouse result = userDAO.getById(expected.getId());
+		UserDTOWarehouse result = userDAO.getById(expected.id());
 		assertThat(result, is(expected));
 	}
 

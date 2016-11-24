@@ -12,9 +12,17 @@ import org.hibernate.annotations.Type;
 @Entity
 @Table(name = "USER")
 public class UserDTOWarehouse {
-	protected Long id;
-	protected String login;
-	protected String password;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	@Type(type = "long")
+	private Long id;
+
+	@Column(name = "login", unique = true)
+	private String login;
+
+	@Column(name = "password")
+	private String password;
 
 	public UserDTOWarehouse() {
 	}
@@ -25,40 +33,16 @@ public class UserDTOWarehouse {
 		this.password = password;
 	}
 
-	public UserDTOWarehouse(String login, String password) {
-		this.login = login;
-		this.password = password;
-		this.id = null;
-	}
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id")
-	@Type(type = "long")
-	public Long getId() {
+	public Long id() {
 		return id;
 	}
 
-	@Column(name = "login", unique = true)
-	public String getLogin() {
+	public String login() {
 		return login;
 	}
 
-	@Column(name = "password")
-	public String getPassword() {
+	public String password() {
 		return password;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 
 	@Override

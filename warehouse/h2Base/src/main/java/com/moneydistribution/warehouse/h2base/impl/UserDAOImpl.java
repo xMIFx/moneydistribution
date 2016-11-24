@@ -21,7 +21,7 @@ public class UserDAOImpl implements UserDAO {
 	private SessionFactory factory;
 
 	public UserDTOWarehouse getById(Long id) {
-		UserDTOWarehouse user = null;
+		UserDTOWarehouse user;
 		try (Session session = factory.openSession()) {
 			user = (UserDTOWarehouse) session.createCriteria(UserDTOWarehouse.class)
 					.add(Restrictions.eq("id", id))
@@ -31,25 +31,19 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	public List<UserDTOWarehouse> getAll() {
-		List<UserDTOWarehouse> users = null;
+		List<UserDTOWarehouse> users;
 
 		try (Session session = factory.openSession()) {
 			users = (List<UserDTOWarehouse>) session.createCriteria(UserDTOWarehouse.class).list();
-		}
-		if (users == null) {
-			users = new ArrayList<>();
 		}
 		return users;
 	}
 
 	@Transactional
 	public Long save(UserDTOWarehouse user) {
-		if (user.getId() != null) {
-			return user.getId();
-		}
 		Session session = factory.getCurrentSession();
 		session.save(user);
-		return user.getId();
+		return user.id();
 	}
 
 }
