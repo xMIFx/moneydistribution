@@ -31,7 +31,11 @@ public enum RefreshPeriodType {
 
 	abstract LocalDate addTo(LocalDate date, int number);
 
-	static RefreshPeriodType byIndex(int index) {
+	public int index() {
+		return index;
+	}
+
+	public static RefreshPeriodType byIndex(int index) {
 		for (RefreshPeriodType value : RefreshPeriodType.values()) {
 			if (value.index == index) {
 				return value;

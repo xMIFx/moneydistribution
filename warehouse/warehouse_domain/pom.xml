@@ -14,7 +14,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.moneydistribution</groupId>
-			<artifactId>warehouse-api</artifactId>
+			<artifactId>core</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>

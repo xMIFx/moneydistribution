@@ -7,6 +7,8 @@ import java.time.LocalDate;
  * Created by Vlad on 25.11.2016.
  */
 public class CashSubAccount {
+	private final Long id;
+	private final Long cashAccountId;
 	private final String name;
 	private final BigDecimal currentAmount;
 	private final BigDecimal increaseAmount;
@@ -15,19 +17,30 @@ public class CashSubAccount {
 	private final RefreshPeriodType refreshPeriodType;
 	private final int refreshPeriods;
 
-	public CashSubAccount(String name,
+	public CashSubAccount(Long id, Long cashAccountId, String name,
 			BigDecimal currentAmount,
 			BigDecimal increaseAmount,
 			LocalDate lastUpdate,
+			LocalDate nextUpdate,
 			RefreshPeriodType refreshPeriodType,
 			int refreshPeriods) {
+		this.cashAccountId = cashAccountId;
+		this.id = id;
 		this.name = name;
 		this.currentAmount = currentAmount;
 		this.increaseAmount = increaseAmount;
+		this.lastUpdate = lastUpdate;
+		this.nextUpdate = nextUpdate;
 		this.refreshPeriodType = refreshPeriodType;
 		this.refreshPeriods = refreshPeriods;
-		this.lastUpdate = lastUpdate;
-		this.nextUpdate = refreshPeriodType.addTo(lastUpdate, refreshPeriods);
+	}
+
+	public Long id() {
+		return id;
+	}
+
+	public Long cashAccountId() {
+		return cashAccountId;
 	}
 
 	public String name() {
@@ -42,19 +55,20 @@ public class CashSubAccount {
 		return increaseAmount;
 	}
 
+	public LocalDate nextUpdate() {
+		return nextUpdate;
+	}
+
 	public LocalDate lastUpdate() {
 		return lastUpdate;
 	}
 
-	public LocalDate extUpdate() {
-		return nextUpdate;
-	}
-
-	public RefreshPeriodType refreshPeriod() {
+	public RefreshPeriodType refreshPeriodType() {
 		return refreshPeriodType;
 	}
 
 	public int refreshPeriods() {
 		return refreshPeriods;
 	}
+
 }

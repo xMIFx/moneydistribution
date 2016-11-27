@@ -4,9 +4,13 @@ import java.util.List;
 
 import com.moneydistribution.domain.User;
 
-public interface UserService {
+public interface IUserService {
 
 	List<User> getAll();
 
 	Long save(User user, String password);
+
+	User get(Long id);
+
+	User get(String login, String password);
 }

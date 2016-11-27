@@ -14,11 +14,6 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.moneydistribution</groupId>
-			<artifactId>warehouse-api</artifactId>
-			<version>${project.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>com.moneydistribution</groupId>
 			<artifactId>warehouse-domain</artifactId>
 			<version>${project.version}</version>
 		</dependency>

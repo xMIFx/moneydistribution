@@ -1,4 +1,4 @@
-package com.moneydistribution.warehouse.whDomain;
+package com.moneydistribution.warehouse.whDomain.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

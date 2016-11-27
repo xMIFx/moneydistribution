@@ -13,7 +13,6 @@
 	<packaging>pom</packaging>
 	<name>${project.name} :: Warehouse</name>
 	<modules>
-		<module>api</module>
 		<module>warehouse_domain</module>
 		<module>h2base</module>
 	</modules>

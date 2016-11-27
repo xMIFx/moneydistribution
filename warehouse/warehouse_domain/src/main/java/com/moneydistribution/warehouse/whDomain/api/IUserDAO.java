@@ -2,9 +2,9 @@ package com.moneydistribution.warehouse.whDomain.api;
 
 import java.util.List;
 
-import com.moneydistribution.warehouse.whDomain.UserDTOWarehouse;
+import com.moneydistribution.warehouse.whDomain.dto.UserDTOWarehouse;
 
-public interface UserDAO {
+public interface IUserDAO {
 	UserDTOWarehouse getById(Long id);
 
 	List<UserDTOWarehouse> getAll();
