@@ -30,6 +30,8 @@
 		<spring-boot.version>1.4.2.RELEASE</spring-boot.version>
 		<maven-dependency-plugin.version>2.10</maven-dependency-plugin.version>
 		<maven-compiler.version>3.5.1</maven-compiler.version>
+		<jersey-spring.version>1.19.3</jersey-spring.version>
+		<jackson-jaxrs-json-provider.version>2.8.5</jackson-jaxrs-json-provider.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -56,22 +58,29 @@
 				<artifactId>hibernate-c3p0</artifactId>
 				<version>${hibernate.version}</version>
 			</dependency>
+			<dependency>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
+				<version>${slf4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+				<version>${logback.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.fasterxml.jackson.jaxrs</groupId>
+				<artifactId>jackson-jaxrs-json-provider</artifactId>
+				<version>${jackson-jaxrs-json-provider.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.glassfish.jersey.media</groupId>
+				<artifactId>jersey-media-json-jackson</artifactId>
+				<version>2.24.1</version>
+			</dependency>
 		</dependencies>
 
 	</dependencyManagement>
-	<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>ch.qos.logback</groupId>
-			<artifactId>logback-classic</artifactId>
-			<version>${logback.version}</version>
-		</dependency>
-	</dependencies>
-
 	<build>
 		<pluginManagement>
 			<plugins>
