@@ -1,28 +1,45 @@
 package com.moneydistribution.application.starter.domain;
 
+import java.util.List;
+
 /**
  * Created by Vlad on 25.11.2016.
  */
 public class CashAccountUiDTO {
-	private final Long id;
-	private final Long userId;
-	private final String name;
+	private Long id;
+	private String name;
+	private List<CashSubAccountUiDTO> cashSubAccounts;
 
-	public CashAccountUiDTO(Long id, Long userId, String name) {
+	public CashAccountUiDTO() {
+	}
+
+	public CashAccountUiDTO(Long id, String name, List<CashSubAccountUiDTO> cashSubAccounts) {
 		this.id = id;
-		this.userId = userId;
 		this.name = name;
+		this.cashSubAccounts = cashSubAccounts;
 	}
 
-	public String name() {
-		return name;
-	}
-
-	public Long id() {
+	public Long getId() {
 		return id;
 	}
 
-	public Long userId() {
-		return userId;
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<CashSubAccountUiDTO> getCashSubAccounts() {
+		return cashSubAccounts;
+	}
+
+	public void setCashSubAccounts(List<CashSubAccountUiDTO> cashSubAccounts) {
+		this.cashSubAccounts = cashSubAccounts;
 	}
 }

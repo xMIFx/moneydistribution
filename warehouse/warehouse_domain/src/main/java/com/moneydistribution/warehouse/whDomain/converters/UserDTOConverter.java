@@ -9,6 +9,6 @@ import com.moneydistribution.warehouse.whDomain.dto.UserDTOWarehouse;
 public class UserDTOConverter extends AbstractWarehouseConverter<UserDTOWarehouse, User> {
 	@Override
 	public User convert(UserDTOWarehouse userDTOWarehouse) {
-		return new User(userDTOWarehouse.id(), userDTOWarehouse.login(), userDTOWarehouse.password());
+		return new User(userDTOWarehouse.id(), userDTOWarehouse.login(), userDTOWarehouse.password(), cashAccounts);
 	}
 }

@@ -9,6 +9,6 @@ import com.moneydistribution.warehouse.whDomain.dto.CashAccountDTOWarehouse;
 public class CashAccountDTOConverter extends AbstractWarehouseConverter<CashAccountDTOWarehouse, CashAccount> {
 	@Override
 	public CashAccount convert(CashAccountDTOWarehouse dto) {
-		return new CashAccount(dto.id(), dto.userId(), dto.name());
+		return new CashAccount(dto.id(), dto.userId(), dto.name(), cashSubAccounts);
 	}
 }

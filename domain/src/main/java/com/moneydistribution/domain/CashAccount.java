@@ -1,17 +1,19 @@
 package com.moneydistribution.domain;
 
+import java.util.List;
+
 /**
  * Created by Vlad on 25.11.2016.
  */
 public class CashAccount {
 	private final Long id;
-	private final Long userId;
 	private final String name;
+	private final List<CashSubAccount> cashSubAccounts;
 
-	public CashAccount(Long id, Long userId, String name) {
+	public CashAccount(Long id, String name, List<CashSubAccount> cashSubAccounts) {
 		this.id = id;
-		this.userId = userId;
 		this.name = name;
+		this.cashSubAccounts = cashSubAccounts;
 	}
 
 	public String name() {
@@ -22,7 +24,7 @@ public class CashAccount {
 		return id;
 	}
 
-	public Long userId() {
-		return userId;
+	public List<CashSubAccount> cashSubAccounts() {
+		return cashSubAccounts;
 	}
 }

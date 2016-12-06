@@ -4,70 +4,97 @@ package com.moneydistribution.application.starter.domain;
  * Created by Vlad on 25.11.2016.
  */
 public class CashSubAccountUiDTO {
-	private final Long id;
-	private final Long cashAccountId;
-	private final String name;
-	private final double currentAmount;
-	private final double increaseAmount;
-	private final long lastUpdate;
-	private final long nextUpdate;
-	private final String refreshPeriodTypeUiDTO;
-	private final int refreshPeriods;
+	private Long id;
+	private String name;
+	private double currentAmount;
+	private double increaseAmount;
+	private long lastUpdate;
+	private long nextUpdate;
+	private String refreshPeriodType;
+	private int refreshPeriods;
+
+	public CashSubAccountUiDTO() {
+	}
 
 	public CashSubAccountUiDTO(Long id,
-			Long cashAccountId,
 			String name,
 			double currentAmount,
 			double increaseAmount,
 			long lastUpdate,
 			long nextUpdate,
-			String refreshPeriodTypeUiDTO,
+			String refreshPeriodType,
 			int refreshPeriods) {
-		this.cashAccountId = cashAccountId;
 		this.id = id;
 		this.name = name;
 		this.currentAmount = currentAmount;
 		this.increaseAmount = increaseAmount;
 		this.lastUpdate = lastUpdate;
 		this.nextUpdate = nextUpdate;
-		this.refreshPeriodTypeUiDTO = refreshPeriodTypeUiDTO;
+		this.refreshPeriodType = refreshPeriodType;
 		this.refreshPeriods = refreshPeriods;
 	}
 
-	public Long id() {
+	public Long getId() {
 		return id;
 	}
 
-	public Long cashAccountId() {
-		return cashAccountId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String name() {
+	public String getName() {
 		return name;
 	}
 
-	public double currentAmount() {
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public double getCurrentAmount() {
 		return currentAmount;
 	}
 
-	public double increaseAmount() {
+	public void setCurrentAmount(double currentAmount) {
+		this.currentAmount = currentAmount;
+	}
+
+	public double getIncreaseAmount() {
 		return increaseAmount;
 	}
 
-	public long nextUpdate() {
-		return nextUpdate;
+	public void setIncreaseAmount(double increaseAmount) {
+		this.increaseAmount = increaseAmount;
 	}
 
-	public long lastUpdate() {
+	public long getLastUpdate() {
 		return lastUpdate;
 	}
 
-	public String refreshPeriodType() {
-		return refreshPeriodTypeUiDTO;
+	public void setLastUpdate(long lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
 
-	public int refreshPeriods() {
+	public long getNextUpdate() {
+		return nextUpdate;
+	}
+
+	public void setNextUpdate(long nextUpdate) {
+		this.nextUpdate = nextUpdate;
+	}
+
+	public String getRefreshPeriodType() {
+		return refreshPeriodType;
+	}
+
+	public void setRefreshPeriodTypeUiDTO(String refreshPeriodType) {
+		this.refreshPeriodType = refreshPeriodType;
+	}
+
+	public int getRefreshPeriods() {
 		return refreshPeriods;
 	}
 
+	public void setRefreshPeriods(int refreshPeriods) {
+		this.refreshPeriods = refreshPeriods;
+	}
 }

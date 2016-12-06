@@ -2,6 +2,8 @@ package com.moneydistribution.application.starter.servlets;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
+import java.util.Collections;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -25,9 +27,10 @@ public class UserController {
 	private IUserService userService;
 
 	@RequestMapping(method = RequestMethod.GET, produces = APPLICATION_JSON_VALUE)
-	public @ResponseBody
+	public
+	@ResponseBody
 	UserUiDTO login(@RequestParam("name") String name, @RequestParam("password") String password) {
-		return new UserUiDTO(0L, "bbb");
+		return new UserUiDTO(0L, "bbb", Collections.emptyList());
 	}
 
 	@RequestMapping("/logOut")
@@ -38,12 +41,12 @@ public class UserController {
 	@RequestMapping(produces = APPLICATION_JSON_VALUE, method = RequestMethod.PUT)
 	@ResponseBody
 	public UserUiDTO registration() {
-		return new UserUiDTO(0L, "bbb");
+		return new UserUiDTO(0L, "bbb", Collections.emptyList());
 	}
 
 	@RequestMapping(produces = APPLICATION_JSON_VALUE, method = RequestMethod.POST)
 	@ResponseBody
 	public UserUiDTO update() {
-		return new UserUiDTO(0L, "bbb");
+		return new UserUiDTO(0L, "bbb", Collections.emptyList());
 	}
 }
