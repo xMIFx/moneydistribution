@@ -36,14 +36,10 @@ public class MvcConfig extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	ServletRegistrationBean h2servletRegistration() {
+	public ServletRegistrationBean h2servletRegistration() {
 		ServletRegistrationBean registrationBean = new ServletRegistrationBean(new WebServlet());
 		registrationBean.addUrlMappings("/console/*");
 		return registrationBean;
 	}
 
-	@Bean
-	public EmbeddedServletContainerFactory servletContainer() {
-		return new TomcatEmbeddedServletContainerFactory();
-	}
 }

@@ -5,15 +5,9 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+
 import com.moneydistribution.core.api.ICashAccountService;
+import com.moneydistribution.core.api.ICashSubAccountService;
 
 /**
  * Created by Vlad on 29.11.2016.
@@ -21,17 +15,13 @@ import com.moneydistribution.core.api.ICashAccountService;
 @Controller
 public class MoneyDistributionServlet {
 	@Resource
+	ICashSubAccountService cashSubAccountService;
+
+	@Resource
 	ICashAccountService cashAccountService;
 
 	@RequestMapping("/")
 	String home() {
-		return "index";
-	}
-
-	@GET
-	@Path("login")
-	@Produces(MediaType.TEXT_PLAIN)
-	public String login() {
 		return "index";
 	}
 
