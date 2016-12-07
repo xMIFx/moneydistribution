@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 import com.moneydistribution.core.impl.UserService;
 import com.moneydistribution.domain.User;
 import com.moneydistribution.warehouse.whDomain.api.IUserDAO;
-import com.moneydistribution.warehouse.whDomain.converters.UserConverter;
-import com.moneydistribution.warehouse.whDomain.converters.UserDTOConverter;
 
 @Component
 public class UserWarehouse implements UserService.IUserWarehouse {

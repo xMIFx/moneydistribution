@@ -5,15 +5,21 @@ import java.util.List;
 public class UserUiDTO {
 
     private long id;
-    private String name;
+    private String login;
+    private String password;
     private List<CashAccountUiDTO> cashAccounts;
 
     public UserUiDTO() {
     }
 
-    public UserUiDTO(long id, String name, List<CashAccountUiDTO> cashAccounts) {
+    public UserUiDTO(long id,
+            String password,
+            String login,
+            List<CashAccountUiDTO> cashAccounts) {
+
         this.id = id;
-        this.name = name;
+        this.login = login;
+        this.password = password;
         this.cashAccounts = cashAccounts;
     }
 
@@ -25,12 +31,20 @@ public class UserUiDTO {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getLogin() {
+        return login;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     public List<CashAccountUiDTO> getCashAccounts() {

@@ -10,7 +10,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.moneydistribution.warehouse.whDomain.dto.UserDTOWarehouse;
+import com.moneydistribution.warehouse.whDomain.dto.UserWarehouseDTO;
 import com.moneydistribution.warehouse.whDomain.api.IUserDAO;
 
 @Repository
@@ -19,27 +19,27 @@ public class UserDAO implements IUserDAO {
 	@Resource
 	private SessionFactory factory;
 
-	public UserDTOWarehouse getById(Long id) {
-		UserDTOWarehouse user;
+	public UserWarehouseDTO getById(Long id) {
+		UserWarehouseDTO user;
 		try (Session session = factory.openSession()) {
-			user = (UserDTOWarehouse) session.createCriteria(UserDTOWarehouse.class)
+			user = (UserWarehouseDTO) session.createCriteria(UserWarehouseDTO.class)
 					.add(Restrictions.eq("id", id))
 					.uniqueResult();
 		}
 		return user;
 	}
 
-	public List<UserDTOWarehouse> getAll() {
-		List<UserDTOWarehouse> users;
+	public List<UserWarehouseDTO> getAll() {
+		List<UserWarehouseDTO> users;
 
 		try (Session session = factory.openSession()) {
-			users = (List<UserDTOWarehouse>) session.createCriteria(UserDTOWarehouse.class).list();
+			users = (List<UserWarehouseDTO>) session.createCriteria(UserWarehouseDTO.class).list();
 		}
 		return users;
 	}
 
 	@Transactional
-	public Long save(UserDTOWarehouse user) {
+	public Long save(UserWarehouseDTO user) {
 		Session session = factory.getCurrentSession();
 		session.save(user);
 		return user.id();

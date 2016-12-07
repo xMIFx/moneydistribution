@@ -7,14 +7,20 @@ import java.util.List;
  */
 public class CashAccountUiDTO {
 	private Long id;
+	private long userId;
 	private String name;
 	private List<CashSubAccountUiDTO> cashSubAccounts;
 
 	public CashAccountUiDTO() {
 	}
 
-	public CashAccountUiDTO(Long id, String name, List<CashSubAccountUiDTO> cashSubAccounts) {
+	public CashAccountUiDTO(Long id,
+			long userId,
+			String name,
+			List<CashSubAccountUiDTO> cashSubAccounts) {
+
 		this.id = id;
+		this.userId = userId;
 		this.name = name;
 		this.cashSubAccounts = cashSubAccounts;
 	}
@@ -25,6 +31,14 @@ public class CashAccountUiDTO {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 
 	public String getName() {

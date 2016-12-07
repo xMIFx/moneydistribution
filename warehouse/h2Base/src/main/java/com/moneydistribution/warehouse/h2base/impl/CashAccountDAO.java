@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.moneydistribution.warehouse.whDomain.api.ICashAccountDAO;
-import com.moneydistribution.warehouse.whDomain.dto.CashAccountDTOWarehouse;
+import com.moneydistribution.warehouse.whDomain.dto.CashAccountWarehouseDTO;
 
 /**
  * Created by Vlad on 28.11.2016.
@@ -24,17 +24,17 @@ public class CashAccountDAO implements ICashAccountDAO {
 
 	@Transactional
 	@Override
-	public Long save(CashAccountDTOWarehouse cashAccount) {
+	public Long save(CashAccountWarehouseDTO cashAccount) {
 		Session session = factory.getCurrentSession();
 		session.save(cashAccount);
 		return cashAccount.id();
 	}
 
 	@Override
-	public List<CashAccountDTOWarehouse> getByUserId(Long id) {
-		List<CashAccountDTOWarehouse> accounts;
+	public List<CashAccountWarehouseDTO> getByUserId(Long id) {
+		List<CashAccountWarehouseDTO> accounts;
 		try (Session session = factory.openSession()) {
-			accounts = (List<CashAccountDTOWarehouse>) session.createCriteria(CashAccountDTOWarehouse.class)
+			accounts = (List<CashAccountWarehouseDTO>) session.createCriteria(CashAccountWarehouseDTO.class)
 					.add(Restrictions.eq("userId", id)).list();
 		}
 		return accounts;

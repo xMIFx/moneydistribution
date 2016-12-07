@@ -10,8 +10,6 @@ import org.springframework.stereotype.Component;
 import com.moneydistribution.core.impl.CashSubAccountService;
 import com.moneydistribution.domain.CashSubAccount;
 import com.moneydistribution.warehouse.whDomain.api.ICashSubAccountDAO;
-import com.moneydistribution.warehouse.whDomain.converters.CashSubAccountConverter;
-import com.moneydistribution.warehouse.whDomain.converters.CashSubAccountDTOConverter;
 
 /**
  * Created by Vlad on 28.11.2016.

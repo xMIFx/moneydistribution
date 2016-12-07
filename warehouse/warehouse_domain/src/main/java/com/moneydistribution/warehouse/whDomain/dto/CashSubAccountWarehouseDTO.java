@@ -1,34 +1,72 @@
-package com.moneydistribution.application.starter.domain;
+package com.moneydistribution.warehouse.whDomain.dto;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.Type;
 
 /**
  * Created by Vlad on 25.11.2016.
  */
-public class CashSubAccountUiDTO {
+
+@Entity
+@Table(name = "CASH_SUB_ACCOUNT")
+public class CashSubAccountWarehouseDTO {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
+	@Type(type = "long")
 	private Long id;
-	private long cashAccoutId;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "currentAmount")
+	@Type(type = "double")
 	private double currentAmount;
+
+	@Column(name = "increaseAmount")
+	@Type(type = "double")
 	private double increaseAmount;
+
+	@Column(name = "lastUpdate")
+	@Type(type = "long")
 	private long lastUpdate;
+
+	@Column(name = "nextUpdate")
+	@Type(type = "long")
 	private long nextUpdate;
-	private String refreshPeriodType;
+
+	@Column(name = "refreshPeriodType")
+	private int refreshPeriodType;
+
+	@Column(name = "refreshPeriods")
 	private int refreshPeriods;
 
-	public CashSubAccountUiDTO() {
+	@ManyToOne
+	@JoinColumn(name = "cash_account_id")
+	private CashAccountWarehouseDTO cashAccount;
+
+	public CashSubAccountWarehouseDTO() {
 	}
 
-	public CashSubAccountUiDTO(Long id,
-			long cashAccoutId,
+	public CashSubAccountWarehouseDTO(Long id,
 			String name,
 			double currentAmount,
 			double increaseAmount,
 			long lastUpdate,
 			long nextUpdate,
-			String refreshPeriodType,
-			int refreshPeriods) {
+			int refreshPeriodType,
+			int refreshPeriods,
+			CashAccountWarehouseDTO cashAccount) {
 
 		this.id = id;
-		this.cashAccoutId = cashAccoutId;
 		this.name = name;
 		this.currentAmount = currentAmount;
 		this.increaseAmount = increaseAmount;
@@ -36,6 +74,7 @@ public class CashSubAccountUiDTO {
 		this.nextUpdate = nextUpdate;
 		this.refreshPeriodType = refreshPeriodType;
 		this.refreshPeriods = refreshPeriods;
+		this.cashAccount = cashAccount;
 	}
 
 	public Long getId() {
@@ -44,18 +83,6 @@ public class CashSubAccountUiDTO {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public long getCashAccoutId() {
-		return cashAccoutId;
-	}
-
-	public void setCashAccoutId(long cashAccoutId) {
-		this.cashAccoutId = cashAccoutId;
-	}
-
-	public void setRefreshPeriodType(String refreshPeriodType) {
-		this.refreshPeriodType = refreshPeriodType;
 	}
 
 	public String getName() {
@@ -98,11 +125,11 @@ public class CashSubAccountUiDTO {
 		this.nextUpdate = nextUpdate;
 	}
 
-	public String getRefreshPeriodType() {
+	public int getRefreshPeriodType() {
 		return refreshPeriodType;
 	}
 
-	public void setRefreshPeriodTypeUiDTO(String refreshPeriodType) {
+	public void setRefreshPeriodType(int refreshPeriodType) {
 		this.refreshPeriodType = refreshPeriodType;
 	}
 
@@ -112,5 +139,13 @@ public class CashSubAccountUiDTO {
 
 	public void setRefreshPeriods(int refreshPeriods) {
 		this.refreshPeriods = refreshPeriods;
+	}
+
+	public CashAccountWarehouseDTO getCashAccount() {
+		return cashAccount;
+	}
+
+	public void setCashAccount(CashAccountWarehouseDTO cashAccount) {
+		this.cashAccount = cashAccount;
 	}
 }

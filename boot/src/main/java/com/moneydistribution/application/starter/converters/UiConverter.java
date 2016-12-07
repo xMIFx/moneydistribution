@@ -19,23 +19,36 @@ import com.moneydistribution.domain.User;
 public class UiConverter {
 
 	public UserUiDTO convert(User user) {
-		return new UserUiDTO(user.id(), user.login(), convertListCashAccounts(user.cashAccounts()));
+		return new UserUiDTO(user.id(),
+				user.password(),
+				user.login(),
+				convertListCashAccounts(user.cashAccounts()));
 	}
 
 	public User convert(UserUiDTO userDTO) {
-		return new User(userDTO.getId(), userDTO.getName(), null, convertListCashAccountDTOs(userDTO.getCashAccounts()));
+		return new User(userDTO.getId(),
+				userDTO.getLogin(),
+				userDTO.getPassword(),
+				convertListCashAccountDTOs(userDTO.getCashAccounts()));
 	}
 
 	public CashAccount convert(CashAccountUiDTO dto) {
-		return new CashAccount(dto.getId(), dto.getName(), convertListCashSubAccountDTOs(dto.getCashSubAccounts()));
+		return new CashAccount(dto.getId(),
+				dto.getUserId(),
+				dto.getName(),
+				convertListCashSubAccountDTOs(dto.getCashSubAccounts()));
 	}
 
 	public CashAccountUiDTO convert(CashAccount cashAccount) {
-		return new CashAccountUiDTO(cashAccount.id(), cashAccount.name(), convertListCashSubAccounts(cashAccount.cashSubAccounts()));
+		return new CashAccountUiDTO(cashAccount.id(),
+				cashAccount.userId(),
+				cashAccount.name(),
+				convertListCashSubAccounts(cashAccount.cashSubAccounts()));
 	}
 
 	public CashSubAccountUiDTO convert(CashSubAccount cashSubAccount) {
 		return new CashSubAccountUiDTO(cashSubAccount.id(),
+				cashSubAccount.cashAccountId(),
 				cashSubAccount.name(),
 				cashSubAccount.currentAmount().doubleValue(),
 				cashSubAccount.increaseAmount().doubleValue(),
@@ -47,6 +60,7 @@ public class UiConverter {
 
 	public CashSubAccount convert(CashSubAccountUiDTO dto) {
 		return new CashSubAccount(dto.getId(),
+				dto.getCashAccoutId(),
 				dto.getName(),
 				BigDecimal.valueOf(dto.getCurrentAmount()),
 				BigDecimal.valueOf(dto.getIncreaseAmount()),
