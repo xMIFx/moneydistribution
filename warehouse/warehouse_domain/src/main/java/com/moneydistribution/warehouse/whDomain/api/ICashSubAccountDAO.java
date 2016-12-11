@@ -1,5 +1,6 @@
 package com.moneydistribution.warehouse.whDomain.api;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.moneydistribution.warehouse.whDomain.dto.CashSubAccountWarehouseDTO;
@@ -9,7 +10,9 @@ import com.moneydistribution.warehouse.whDomain.dto.CashSubAccountWarehouseDTO;
  */
 public interface ICashSubAccountDAO {
 
-	Long save(CashSubAccountWarehouseDTO cashAccount);
+	Long saveOrUpdate(CashSubAccountWarehouseDTO cashAccount);
 
-	List<CashSubAccountWarehouseDTO> getByCashAccountId(Long id);
+	Collection<CashSubAccountWarehouseDTO> getByCashAccountId(Long id);
+
+	Collection<CashSubAccountWarehouseDTO> getByNextTimeForUpdate(long l);
 }

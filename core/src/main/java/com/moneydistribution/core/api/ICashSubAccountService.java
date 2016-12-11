@@ -9,7 +9,7 @@ import com.moneydistribution.domain.CashSubAccount;
  */
 public interface ICashSubAccountService {
 
-	Long save(CashSubAccount cashAccount);
+	Long saveOrUpdate(CashSubAccount cashAccount);
 
 	List<CashSubAccount> getByCashAccountId(Long id);
 }

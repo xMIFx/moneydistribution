@@ -67,7 +67,7 @@ public class WarehouseConverter {
 				dto.getRefreshPeriods());
 	}
 
-	private Set<CashAccountWarehouseDTO> convertListCashAccounts(Collection<CashAccount> cashAccountList) {
+	public Set<CashAccountWarehouseDTO> convertListCashAccounts(Collection<CashAccount> cashAccountList) {
 		Set<CashAccountWarehouseDTO> listTo = new HashSet<>();
 		for (CashAccount cashAccount : cashAccountList) {
 			listTo.add(convert(cashAccount));
@@ -75,7 +75,7 @@ public class WarehouseConverter {
 		return listTo;
 	}
 
-	private List<CashAccount> convertListCashAccountDTOs(Collection<CashAccountWarehouseDTO> listFrom) {
+	public List<CashAccount> convertListCashAccountDTOs(Collection<CashAccountWarehouseDTO> listFrom) {
 		List<CashAccount> listTo = new ArrayList<>();
 		for (CashAccountWarehouseDTO cashAccountDTO : listFrom) {
 			listTo.add(convert(cashAccountDTO));
@@ -83,7 +83,7 @@ public class WarehouseConverter {
 		return listTo;
 	}
 
-	private Set<CashSubAccountWarehouseDTO> convertListCashSubAccounts(Collection<CashSubAccount> listFrom) {
+	public Set<CashSubAccountWarehouseDTO> convertListCashSubAccounts(Collection<CashSubAccount> listFrom) {
 		Set<CashSubAccountWarehouseDTO> listTo = new HashSet<>();
 		for (CashSubAccount cashSubAccount : listFrom) {
 			listTo.add(convert(cashSubAccount));
@@ -91,7 +91,7 @@ public class WarehouseConverter {
 		return listTo;
 	}
 
-	private List<CashSubAccount> convertListCashSubAccountDTOs(Collection<CashSubAccountWarehouseDTO> listFrom) {
+	public List<CashSubAccount> convertListCashSubAccountDTOs(Collection<CashSubAccountWarehouseDTO> listFrom) {
 		List<CashSubAccount> listTo = new ArrayList<>();
 		for (CashSubAccountWarehouseDTO cashSubAccountDTO : listFrom) {
 			listTo.add(convert(cashSubAccountDTO));

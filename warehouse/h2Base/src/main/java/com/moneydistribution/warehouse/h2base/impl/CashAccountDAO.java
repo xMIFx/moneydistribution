@@ -2,12 +2,9 @@ package com.moneydistribution.warehouse.h2base.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.moneydistribution.warehouse.whDomain.api.ICashAccountDAO;
@@ -16,18 +13,16 @@ import com.moneydistribution.warehouse.whDomain.dto.CashAccountWarehouseDTO;
 /**
  * Created by Vlad on 28.11.2016.
  */
-@Repository
 public class CashAccountDAO implements ICashAccountDAO {
 
-	@Resource
 	private SessionFactory factory;
 
 	@Transactional
 	@Override
-	public Long save(CashAccountWarehouseDTO cashAccount) {
+	public Long saveOrUpdate(CashAccountWarehouseDTO cashAccount) {
 		Session session = factory.getCurrentSession();
-		session.save(cashAccount);
-		return cashAccount.id();
+		session.saveOrUpdate(cashAccount);
+		return cashAccount.getId();
 	}
 
 	@Override
@@ -38,5 +33,9 @@ public class CashAccountDAO implements ICashAccountDAO {
 					.add(Restrictions.eq("userId", id)).list();
 		}
 		return accounts;
+	}
+
+	public void setFactory(SessionFactory factory) {
+		this.factory = factory;
 	}
 }

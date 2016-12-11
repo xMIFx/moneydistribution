@@ -9,7 +9,7 @@ import com.moneydistribution.warehouse.whDomain.dto.CashAccountWarehouseDTO;
  */
 public interface ICashAccountDAO {
 
-	Long save(CashAccountWarehouseDTO cashAccount);
+	Long saveOrUpdate(CashAccountWarehouseDTO cashAccount);
 
 	List<CashAccountWarehouseDTO> getByUserId(Long id);
 }

@@ -1,6 +1,6 @@
 package com.moneydistribution.warehouse.whDomain.impl;
 
-import java.util.ArrayList;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,29 +8,37 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 
 import com.moneydistribution.core.impl.CashSubAccountService;
+import com.moneydistribution.core.job.CashSubAccountUpdateJob;
 import com.moneydistribution.domain.CashSubAccount;
 import com.moneydistribution.warehouse.whDomain.api.ICashSubAccountDAO;
+import com.moneydistribution.warehouse.whDomain.converters.WarehouseConverter;
 
 /**
  * Created by Vlad on 28.11.2016.
  */
-@Component
-public class CashSubAccountWarehouse implements CashSubAccountService.ICashSubAccountWarehouse {
-	@Resource
+public class CashSubAccountWarehouse implements CashSubAccountService.ICashSubAccountWarehouse,
+		CashSubAccountUpdateJob.NeedUpdateCashSubAccountWarehouse {
+
 	private ICashSubAccountDAO cashSubAccountDAO;
 
-	private CashSubAccountConverter cashSubAccountConverter = new CashSubAccountConverter();
-	private CashSubAccountDTOConverter cashSubAccountDTOWarehouse = new CashSubAccountDTOConverter();
+	private final WarehouseConverter convert = new WarehouseConverter();
 
 	@Override
-	public Long save(CashSubAccount cashAccount) {
-		return cashSubAccountDAO.save(cashSubAccountConverter.convert(cashAccount));
+	public Long saveOrUpdate(CashSubAccount cashAccount) {
+		return cashSubAccountDAO.saveOrUpdate(convert.convert(cashAccount));
 	}
 
 	@Override
 	public List<CashSubAccount> getByCashAccountId(Long id) {
-		cashSubAccountConverter.convert(new ArrayList<CashSubAccount>());
+		return convert.convertListCashSubAccountDTOs(cashSubAccountDAO.getByCashAccountId(id));
+	}
 
-		return cashSubAccountDTOWarehouse.convert(cashSubAccountDAO.getByCashAccountId(id));
+	@Override
+	public List<CashSubAccount> needUpdate(LocalDate dateOfUpdate) {
+		return convert.convertListCashSubAccountDTOs(cashSubAccountDAO.getByNextTimeForUpdate(dateOfUpdate.toEpochDay()));
+	}
+
+	public void setCashSubAccountDAO(ICashSubAccountDAO cashSubAccountDAO) {
+		this.cashSubAccountDAO = cashSubAccountDAO;
 	}
 }

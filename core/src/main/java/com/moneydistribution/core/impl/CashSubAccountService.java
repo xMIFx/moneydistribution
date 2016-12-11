@@ -2,25 +2,19 @@ package com.moneydistribution.core.impl;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Service;
-
 import com.moneydistribution.core.api.ICashSubAccountService;
 import com.moneydistribution.domain.CashSubAccount;
 
 /**
  * Created by Vlad on 26.11.2016.
  */
-@Service
 public class CashSubAccountService implements ICashSubAccountService {
 
-	@Resource
 	private ICashSubAccountWarehouse cashSubAccountWarehouse;
 
 	@Override
-	public Long save(CashSubAccount cashAccount) {
-		return cashSubAccountWarehouse.save(cashAccount);
+	public Long saveOrUpdate(CashSubAccount cashAccount) {
+		return cashSubAccountWarehouse.saveOrUpdate(cashAccount);
 	}
 
 	@Override
@@ -28,9 +22,13 @@ public class CashSubAccountService implements ICashSubAccountService {
 		return cashSubAccountWarehouse.getByCashAccountId(id);
 	}
 
+	public void setCashSubAccountWarehouse(ICashSubAccountWarehouse cashSubAccountWarehouse) {
+		this.cashSubAccountWarehouse = cashSubAccountWarehouse;
+	}
+
 	public interface ICashSubAccountWarehouse {
 
-		Long save(CashSubAccount cashAccount);
+		Long saveOrUpdate(CashSubAccount cashAccount);
 
 		List<CashSubAccount> getByCashAccountId(Long id);
 	}

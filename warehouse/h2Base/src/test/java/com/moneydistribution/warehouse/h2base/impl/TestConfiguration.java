@@ -16,6 +16,9 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.mchange.v2.c3p0.DriverManagerDataSource;
+import com.moneydistribution.warehouse.whDomain.api.ICashAccountDAO;
+import com.moneydistribution.warehouse.whDomain.api.ICashSubAccountDAO;
+import com.moneydistribution.warehouse.whDomain.api.IUserDAO;
 
 /**
  * Created by bukatinvv on 16.09.2015.
@@ -28,6 +31,9 @@ import com.mchange.v2.c3p0.DriverManagerDataSource;
 public class TestConfiguration {
 	@Autowired
 	private Environment env;
+
+	@Autowired
+	private SessionFactory factory;
 
 	@Bean
 	public DataSource dataSource() {
@@ -47,6 +53,27 @@ public class TestConfiguration {
 		sessionFactory.setHibernateProperties(hibernateProperties());
 		sessionFactory.setPackagesToScan("com.moneydistribution.warehouse");
 		return sessionFactory;
+	}
+
+	@Bean
+	public ICashSubAccountDAO iCashSubAccountDAO() {
+		CashSubAccountDAO cashSubAccountDAO = new CashSubAccountDAO();
+		cashSubAccountDAO.setFactory(factory);
+		return cashSubAccountDAO;
+	}
+
+	@Bean
+	public ICashAccountDAO iCashAccountDAO() {
+		CashAccountDAO cashAccountDAO = new CashAccountDAO();
+		cashAccountDAO.setFactory(factory);
+		return cashAccountDAO;
+	}
+
+	@Bean
+	public IUserDAO iUserDAO() {
+		UserDAO userDAO = new UserDAO();
+		userDAO.setFactory(factory);
+		return userDAO;
 	}
 
 	@Autowired
@@ -92,4 +119,5 @@ public class TestConfiguration {
 				env.getRequiredProperty("c3p0.idle_test_period"));
 		return properties;
 	}
+
 }

@@ -29,7 +29,7 @@ public class UserWarehouseDTO {
 	@Column(name = "password")
 	private String password;
 
-	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private Set<CashAccountWarehouseDTO> cashAccounts;
 
 	public UserWarehouseDTO() {
@@ -76,5 +76,37 @@ public class UserWarehouseDTO {
 
 	public void setCashAccounts(Set<CashAccountWarehouseDTO> cashAccounts) {
 		this.cashAccounts = cashAccounts;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+
+		UserWarehouseDTO that = (UserWarehouseDTO) o;
+
+		if (!id.equals(that.id)) {
+			return false;
+		}
+		if (!login.equals(that.login)) {
+			return false;
+		}
+		if (!password.equals(that.password)) {
+			return false;
+		}
+		return cashAccounts.equals(that.cashAccounts);
+	}
+
+	@Override
+	public int hashCode() {
+		int result = id.hashCode();
+		result = 31 * result + login.hashCode();
+		result = 31 * result + password.hashCode();
+		result = 31 * result + cashAccounts.hashCode();
+		return result;
 	}
 }

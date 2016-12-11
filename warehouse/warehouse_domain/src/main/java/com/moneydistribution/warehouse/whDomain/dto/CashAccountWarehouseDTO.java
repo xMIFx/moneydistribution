@@ -34,7 +34,7 @@ public class CashAccountWarehouseDTO {
 	@JoinColumn(name = "user_id")
 	private UserWarehouseDTO user;
 
-	@OneToMany(mappedBy = "cashAccount", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "cashAccount", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	private Set<CashSubAccountWarehouseDTO> cashSubAccounts;
 
 	public CashAccountWarehouseDTO() {

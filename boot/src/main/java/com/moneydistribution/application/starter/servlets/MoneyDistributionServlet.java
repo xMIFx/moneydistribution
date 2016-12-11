@@ -1,8 +1,5 @@
 package com.moneydistribution.application.starter.servlets;
 
-import javax.annotation.Resource;
-
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -12,12 +9,9 @@ import com.moneydistribution.core.api.ICashSubAccountService;
 /**
  * Created by Vlad on 29.11.2016.
  */
-@Controller
 public class MoneyDistributionServlet {
-	@Resource
 	ICashSubAccountService cashSubAccountService;
 
-	@Resource
 	ICashAccountService cashAccountService;
 
 	@RequestMapping("/")
@@ -73,5 +67,13 @@ public class MoneyDistributionServlet {
 	@RequestMapping(value = "/cashSubAccount", method = RequestMethod.DELETE)
 	String removeCashSubAccount() {
 		return "index";
+	}
+
+	public void setCashSubAccountService(ICashSubAccountService cashSubAccountService) {
+		this.cashSubAccountService = cashSubAccountService;
+	}
+
+	public void setCashAccountService(ICashAccountService cashAccountService) {
+		this.cashAccountService = cashAccountService;
 	}
 }

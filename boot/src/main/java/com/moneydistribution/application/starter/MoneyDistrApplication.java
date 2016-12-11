@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
+import com.moneydistribution.application.starter.springConfig.CoreConfig;
 import com.moneydistribution.application.starter.springConfig.MvcConfig;
 import com.moneydistribution.application.starter.springConfig.SpringSecurityConfig;
-import com.moneydistribution.warehouse.h2base.impl.springConfig.DataBaseConfig;
 
-@Import({MvcConfig.class, SpringSecurityConfig.class, DataBaseConfig.class})
+@Import({MvcConfig.class, SpringSecurityConfig.class, CoreConfig.class})
 @SpringBootApplication
 public class MoneyDistrApplication {
 
